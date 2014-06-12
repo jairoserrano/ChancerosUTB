@@ -20,3 +20,8 @@ Recuerden leer la documentación de:
 * https://laracasts.com
 * http://learn.jquery.com
 
+Usar un buen editor de código:
+
+* https://atom.io
+* https://netbeans.org
+
