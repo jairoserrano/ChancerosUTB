@@ -11,3 +11,12 @@ Para ejecutar el servidor:
     php artisan serve
 
 Ingesar a http://localhost:8000
+
+Recuerden leer la documentación de:
+
+* http://getbootstrap.com/getting-started/
+* http://bootswatch.com/
+* http://laravel.com/docs/quick
+* https://laracasts.com
+* http://learn.jquery.com
+
