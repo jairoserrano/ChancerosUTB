@@ -20,6 +20,9 @@ class CreateUsers extends Migration {
                         $table->string('identification', 20)->unique();
                         $table->string('password');
                         $table->string('email');
+                        $table->string('cellphone'); //Numero de celular
+                        $table->integer('gender'); //1. Masculino 2. Femenino
+                        $table->date('birthday'); //Fecha de nacimiento
                         $table->timestamps();
 		});
 	}
