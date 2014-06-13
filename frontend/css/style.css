@@ -1,0 +1,24 @@
+#header{
+    background: #237d4a;
+    padding: 10px;
+}
+#container_first{
+    padding: 20px;
+    text-align: center;
+}
+#login_checkbox{
+    text-align: left
+}
+#button_login{
+    width: 100%;
+    background: #237d4a;
+    color: #fff;
+    
+}
+#form_people{
+    background: #e9e4e4;
+    padding: 5px;
+}
+.margin_bottom{
+    margin-bottom: 15px;
+}
