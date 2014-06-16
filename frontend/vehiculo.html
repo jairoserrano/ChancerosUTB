@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chanceros utb</title>
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div class="row" id="header">
+            <div class="col-md-6">logo</div>
+            <div class="col-md-6 title_page text-right" >
+                VEHICLE REGISTRATION
+            </div>
+        </div>
+        <form id="dates" name="formvehicle"> 
+        <div class="container pading_top" >
+        <div class="row" id="form_cart">
+            <h1>
+                 VEHICLE REGISTRATION
+            </h1>
+           
+           <div class="row" >
+                        <div class="col-md-6">
+                            <label>Plate</label>
+                            <input class="form-control margin_bottom" name="plate" id="plate" type="text" placeholder="plate">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Color</label>
+                            <input class="form-control margin_bottom" name="color" id="color" type="text" placeholder="color"> 
+                        </div>
+           </div>
+            <div class="row" >
+                        <div class="col-md-6">
+                            <label>Model</label>
+                            <input class="form-control margin_bottom" name="model" id="model" type="text" placeholder="model">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Capacity</label>
+                            <input class="form-control margin_bottom" name="capacity" id="capacity" type="number" placeholder="capacity"> 
+                        </div>
+           </div>
+            <div class="row" >
+                        <div class="col-md-6">
+                            <label>Type</label>
+                            <input class="form-control margin_bottom" name="type" id="type" type="text" placeholder="type">
+                        </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" id="save_registration"> SAVE REGISTRATION</button>
+                    </div>
+                </div>
+                
+           </div>
+            
+        </div>
+        </div>
+        </form>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- script -->
+        <script type="text/javascript">
+                   $(document).ready(function() {
+                       $("#save_registration").bind("click", function() {
+                           var concattedjson = $("#dates").serialize();
+                           alert(concattedjson);
+                          
+                           $.ajax({
+                             //  url: 'http://localhost:8000/paciente/create',
+                               type: 'GET',
+                               data: concattedjson,
+                               dataType: "json"
+                           }).done(function(data)
+                           {
+                               alert(data);
+                           });
+                           //location.reload(true);
+                       });
+                   });
+        </script>        
+    </body>
+</html>
