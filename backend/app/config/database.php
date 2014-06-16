@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'chanceutb',
+			'database'  => 'chancerosutb',
 			'username'  => 'root',
-			'password'  => 'sanmen',
+			'password'  => 'thomas4',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
