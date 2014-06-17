@@ -1,0 +1,12 @@
+#header{
+    background: #237d4a;
+    padding: 10px 0 10px 0;
+}
+#container_first{
+    padding: 20px 0 20px 0;
+}
+
+.fullwidth{
+    width: 100%;
+    background: #237d4a;
+}

@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>@yield('title','Login')</title>
+        <title>Chance UTB</title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <!-- Bootstrap -->
-        {{ HTML::style('../css/bootstrap.min.css') }}
-        {{ HTML::style('../css/style.css') }}
+        {{ HTML::style('recursos/css/bootstrap.min.css' , array('media'=>'screen')) }}
+        {{ HTML::style('recursos/css/style.css' , array('media'=>'screen')) }}
     </head>
     <body>
-        <div class='container'>
-            <div class='row'>
-                <div class='col-md-1'>
-                    <h1>Form</h1>
+        <div class="fullwidth">
+            <div class='container'>
+                <div class='row' id='header'>
+                    <div class="col-md-5" id="logo">ChanceUTB</div>
+                    <div class='col-md-7'>
+                        {{Form::open(array('route' => 'sessions.store','role'=>'form', 'class'=>'form-inline')) }}
 
-                    {{Form::open(array('route' => 'sessions.store'))}}
-
-                    <ul>
-                        <li>
-                            {{Form::label('email', 'Email:')}}
-                            {{Form::text('email')}}
-
-                        </li>
-                        <li>
-                            {{Form::label('password', 'Password:')}}
-                            {{Form::password('password')}}
-                        </li>
-
-                        <li>
-                            {{Form::submit()}}
-                        </li>
-                    </ul>
-
-                    {{Form::close()}}
+                        <div class='form-group'>
+                            {{ Form::email('email', null, array('placeholder' => 'Email', 'class' => 'form-control', 'required' => 'required')) }}
+                        </div>
+                        <div class='form-group'>
+                            {{ Form::password('password', array('placeholder' => 'Password', 'class' => 'form-control', 'required' => 'required')) }}
+                        </div>
+                        <div class='form-group'>
+                            {{ Form::button('Sign in', array('type' => 'submit', 'class' => 'btn btn-success')) }}  
+                        </div>
+                        {{Form::close()}}
+                    </div>
                 </div>
             </div>
         </div>
-
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="../js/jquery-1.9.1.min.js"></script>
+        <script src="recursos/js/jquery-1.9.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        {{ HTML::script('../js/bootstrap.min.js') }}
+        {{ HTML::script('recursos/js/bootstrap.min.js') }}
     </body>
 </html>
