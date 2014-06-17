@@ -19,6 +19,7 @@ Recuerden leer la documentación de:
 * http://laravel.com/docs/quick
 * https://laracasts.com
 * http://learn.jquery.com
+* http://www.devcode.la/cursos/curso-basico-de-laravel/
 
 Usar un buen editor de código:
 
