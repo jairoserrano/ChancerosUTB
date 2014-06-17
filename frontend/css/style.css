@@ -1,14 +1,11 @@
 #header{
     background: #237d4a;
-    padding: 10px;
+    padding: 10px 0 10px 0;
 }
 #container_first{
-    padding: 20px;
-    text-align: center;
+    padding: 20px 0 20px 0;
 }
-#login_checkbox{
-    text-align: left
-}
+
 #button_login{
     width: 100%;
     background: #237d4a;
@@ -19,10 +16,15 @@
     background: #e9e4e4;
     padding: 5px;
 }
-.margin_bottom{
-    margin-bottom: 15px;
+
+.fullwidth{
+    width: 100%;
+    background: #237d4a;
 }
-.title_page{
+
+.form-register{
+    display: inline-block;
+}.title_page{
     color: #fff;
  
     text-transform: uppercase;
