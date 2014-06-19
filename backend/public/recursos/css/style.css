@@ -6,7 +6,31 @@
     padding: 20px 0 20px 0;
 }
 
+#button_login{
+    width: 100%;
+    background: #237d4a;
+    color: #fff;
+}
+
 .fullwidth{
     width: 100%;
     background: #237d4a;
+}
+
+.form-register{
+    display: inline-block;
+}
+.title_page{
+    color: #fff;
+ 
+    text-transform: uppercase;
+    
+}
+.pading_top{
+    padding-top: 50px;
+    
+}
+
+.buttons{
+    padding-top: 10px;
 }

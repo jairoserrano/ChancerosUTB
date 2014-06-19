@@ -1,6 +1,6 @@
 <?php
 
-class SessionsController extends \BaseController {
+class UserController extends \BaseController {
 
     /**
      * Display a listing of the resource.
@@ -17,7 +17,6 @@ class SessionsController extends \BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('sessions.create');
     }
 
     /**
@@ -26,20 +25,11 @@ class SessionsController extends \BaseController {
      * @return Response
      */
     public function store() {
-
-        // validate
-
-        $input = Input::all();
-        $attempt = Auth::attempt([
-                    'email' => $input['email'],
-                    'password' => $input['password']
-        ]);
-
-        if ($attempt) {
-            return Redirect::intended('/profile');
-        } else {
-            dd('problem');
-        }
+        $post_data = Input::all();
+        $post_data['password'] = Hash::make($post_data['password']);
+        User::create($post_data);
+        
+        return Redirect::intended('/login');
     }
 
     /**
@@ -78,10 +68,8 @@ class SessionsController extends \BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function destroy() {
-        Auth::logout();
-        
-        return Redirect::intended('login');
+    public function destroy($id) {
+        //
     }
 
 }

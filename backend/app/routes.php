@@ -12,9 +12,7 @@
  */
 
 
-Route::get('/', ['as' => 'home', function() {
-return 'Home page!!';
-}]);
+Route::get('/', 'SessionsController@create');
 
 
 Route::get('/authtest', array('before' => 'auth.basic'), function() {
@@ -29,3 +27,4 @@ Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 
 Route::resource('sessions', 'SessionsController');
+Route::resource('user', 'UserController');
