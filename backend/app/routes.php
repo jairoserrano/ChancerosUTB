@@ -14,23 +14,16 @@
 
 Route::get('/', 'SessionsController@create');
 
-
-Route::get('/authtest', array('before' => 'auth.basic'), function() {
-    return View::make('hello');
-});
-
 Route::get('profile', function() {
     return Auth::user()->email;
 })->before('auth');
 
-Route::get('vehiclelist', 'VehicleController@index')->before('auth');
-
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
-
 Route::resource('sessions', 'SessionsController');
+
 Route::resource('user', 'UserController');
 
 Route::get('registervehicle', 'VehicleController@create')->before('auth');
-
+Route::get('vehiclelist', 'VehicleController@index')->before('auth');
 Route::resource('vehicle', 'VehicleController');

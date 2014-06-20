@@ -15,17 +15,27 @@
                     <div class="col-md-9" id="logo">ChanceUTB</div>
                     <div class="col-md-3" id="logo">
                         <p id="hello"><strong>Hello, {{ Auth::user()->name }} {{ Auth::user()->lastname }}  </strong></p>
+                        <p>{{ HTML::link('/logout','Logout')}}</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    {{ $vehicle[0]->color }}
+
+                @if($vehicle != null)
+                @foreach($vehicle as $veh)
+                <div class="col-md-6">   
+                    <h4><strong>{{ $veh->brand }} {{ $veh->model }}</strong></h4>
+                    <p><strong>Plate</strong>: {{ $veh->plate }} </p>
+                    <p><strong>Color</strong>: {{ $veh->color }} </p>
+                    <p><strong>Capacity</strong>: {{ $veh->capacity }} </p>
                 </div>
+                @endforeach
+                @endif
+
                 <div class="col-md-6">
-                    
+
                 </div>
             </div>
         </div>

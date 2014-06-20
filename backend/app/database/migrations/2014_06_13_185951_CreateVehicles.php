@@ -15,6 +15,7 @@ class CreateVehicles extends Migration {
             $table->increments('id');
             $table->string('plate');
             $table->string('color');
+            $table->string('brand');
             $table->string('model');
             $table->integer('capacity');
             $table->integer('type'); // 1. Carros/Camionetas 2. Motos 3. Otros
