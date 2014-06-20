@@ -8,6 +8,16 @@
         {{ HTML::style('recursos/css/style.css') }}
     </head>
     <body>        
+        <div class="fullwidth">
+            <div class='container'>
+                <div class='row' id='header'>
+                    <div class="col-md-9" id="logo">ChanceUTB</div>
+                    <div class="col-md-3" id="logo">
+                        <p id="hello"><strong>Hello, {{ Auth::user()->name }} {{ Auth::user()->lastname }}  </strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row" id="container_first">
                 <div class="col-md-6">
@@ -58,7 +68,7 @@
                             {{ Form::button('Reset', array('type' => 'reset', 'class' => 'btn btn-default')) }} 
                         </div>
                         <div class="col-md-6">
-                            
+
                         </div>
                     </div>
                     {{ Form::close() }}
