@@ -8,8 +8,8 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function index() {
-        $vehicles = Vehicle::all()->toJson();
-        return $vehicles;
+        //$vehicles = Vehicle::all()->toJson();
+        //return $vehicles;
     }
 
     /**
@@ -18,8 +18,7 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function create() {
-        $vehicle = new Vehicle;
-        $vehicles = Input::all();
+        return View::make('vehicles.create');
     }
 
     /**
@@ -29,6 +28,12 @@ class VehicleController extends \BaseController {
      */
     public function store() {
         //
+        $vehicle = Input::all();
+        $vehicle['users_id'] = Auth::user()->id;
+        Vehicle::create($vehicle);
+        
+        return Redirect::intended('/profile');
+        
     }
 
     /**
@@ -38,8 +43,8 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function show($id) {
-        $vehicle = Vehicle::find($id)->toJson();
-        return $vehicle;
+        //$vehicle = Vehicle::find($id)->toJson();
+        //return $vehicle;
     }
 
     /**

@@ -20,11 +20,15 @@ Route::get('/authtest', array('before' => 'auth.basic'), function() {
 });
 
 Route::get('profile', function() {
-    return Auth::user()->id;
-});
+    return Auth::user()->email;
+})->before('auth');
 
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 
 Route::resource('sessions', 'SessionsController');
 Route::resource('user', 'UserController');
+
+Route::get('registervehicle', 'VehicleController@create')->before('auth');
+
+Route::resource('vehicle', 'VehicleController');
