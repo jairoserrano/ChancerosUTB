@@ -10,6 +10,8 @@ class VehicleController extends \BaseController {
     public function index() {
         //$vehicles = Vehicle::all()->toJson();
         //return $vehicles;
+        $vehicle =  DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
+        return View::make('vehicles.vehiclelist')->with('vehicle', $vehicle);
     }
 
     /**
@@ -75,10 +77,5 @@ class VehicleController extends \BaseController {
      */
     public function destroy($id) {
         //
-    }
-
-    public function vehiclelist(){
-        $vehicle =  DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
-        return View::make('vehicles.vehiclelist')->with('vehicle', $vehicle);
     }
 }
