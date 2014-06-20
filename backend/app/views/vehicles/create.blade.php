@@ -24,7 +24,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <h3>Nuevo Vehiculo</h3>
+                    <h3>Add Vehicle</h3>
                     {{Form::open(array('route' => 'vehicle.store','role'=>'form', 'class'=>'form-inline')) }}
                     <div class='row'>
                         <div class="col-md-6">

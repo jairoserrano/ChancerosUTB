@@ -77,4 +77,8 @@ class VehicleController extends \BaseController {
         //
     }
 
+    public function vehiclelist(){
+        $vehicle =  DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
+        return View::make('vehicles.vehiclelist')->with('vehicle', $vehicle);
+    }
 }

@@ -23,6 +23,8 @@ Route::get('profile', function() {
     return Auth::user()->email;
 })->before('auth');
 
+Route::get('vehiclelist', 'VehicleController@vehiclelist')->before('auth');
+
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 
