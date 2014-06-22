@@ -9,6 +9,7 @@ Ingresar a backend e instalar las librerías de Laravel, ejecutar:
 Para ejecutar el servidor:
 
     php artisan serve
+    php artisan migrate
 
 Ingesar a http://localhost:8000
 
