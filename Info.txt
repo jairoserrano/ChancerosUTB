@@ -1,0 +1,8 @@
+1. Para hacer login se debe entrar /login
+  1.1 Si se equivoca al hacer login, lo enviará  a una página exclusiva para hacer login.
+2. Al entrar ingresará a una página /profile creada temporalmente, mientras se crea la página donde estarán la lista de
+   chances disponibles.
+3. Si se ingresa a /vehiclelist se podrá ver una lista de los vehículos del usuario con el que se ingresó.
+  3.1 Al hacer clic en edit lo llevará a una vista con un formulario para editar la información ya existente.
+  3.2 Al hacer clic en remove eliminará el carro (por ahora sin verificación) y actualizará la página.
+4. Si se ingresa a /registervehicle se puede crear un vehiculo nuevo asociado al usuario con el cual se ingresó.
