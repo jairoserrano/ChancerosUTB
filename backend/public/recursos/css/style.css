@@ -37,3 +37,10 @@
 #hello{
     color: white;
 }
+.header_color{
+    background: #237d4a;
+    border-color:#237d4a;
+}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus{
+    background-color: #2FBE6E;
+}

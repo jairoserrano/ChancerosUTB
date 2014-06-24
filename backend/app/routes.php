@@ -15,7 +15,8 @@
 Route::get('/', 'SessionsController@create');
 
 Route::get('profile', function() {
-    return Auth::user()->email;
+  //  return Auth::user()->email;
+     return View::make('index');
 })->before('auth');
 
 Route::get('login', 'SessionsController@create');
@@ -27,3 +28,6 @@ Route::resource('user', 'UserController');
 Route::get('registervehicle', 'VehicleController@create')->before('auth');
 Route::get('vehiclelist', 'VehicleController@index')->before('auth');
 Route::resource('vehicle', 'VehicleController');
+
+Route::get('registerchance', 'ChanceController@create');//->before('auth');
+Route::resource('chance', 'ChanceController');
