@@ -10,7 +10,7 @@ class VehicleController extends \BaseController {
     public function index() {
         //$vehicles = Vehicle::all()->toJson();
         //return $vehicles;
-        $vehicle =  DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
+        $vehicle = DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
         return View::make('vehicles.vehiclelist')->with('vehicle', $vehicle);
     }
 
@@ -33,10 +33,20 @@ class VehicleController extends \BaseController {
         $vehicle = Input::all();
         $vehicle['users_id'] = Auth::user()->id;
         $vehicle['status'] = true;
-        Vehicle::create($vehicle);
-        
-        return Redirect::intended('/vehiclelist');
-        
+        try {
+            $vehicle2 = Vehicle::find($vehicle['id']);
+            $vehicle2->plate= $vehicle['plate'];
+            $vehicle2->color= $vehicle['color'];
+            $vehicle2->brand= $vehicle['brand'];
+            $vehicle2->model= $vehicle['model'];
+            $vehicle2->capacity= $vehicle['capacity'];
+            $vehicle2->type= $vehicle['type'];
+            $vehicle2->save();
+            return Redirect::intended('/vehiclelist');
+        } catch (Exception $e) {
+            Vehicle::create($vehicle);
+            return Redirect::intended('/vehiclelist');
+        }
     }
 
     /**
@@ -46,8 +56,8 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function show($id) {
-        //$vehicle = Vehicle::find($id)->toJson();
-        //return $vehicle;
+        $vehicle = Vehicle::find($id);
+        return $vehicle;
     }
 
     /**
@@ -57,7 +67,8 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function edit($id) {
-        //
+        $vehicle = Vehicle::find($id);
+        return View::make('vehicles.edit')->with('vehicle', $vehicle);
     }
 
     /**
@@ -67,7 +78,10 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+        $vehicle = Input::all();
+        $vehicle['status'] = true;
+        Vehicle::update($vehicle);
+        return Redirect::intended('/vehiclelist');
     }
 
     /**
@@ -79,4 +93,5 @@ class VehicleController extends \BaseController {
     public function destroy($id) {
         //
     }
+
 }
