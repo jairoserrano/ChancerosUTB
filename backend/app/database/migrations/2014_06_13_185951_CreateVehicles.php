@@ -18,6 +18,7 @@ class CreateVehicles extends Migration {
             $table->string('brand');
             $table->string('model');
             $table->integer('capacity');
+            $table->boolean('status');
             $table->integer('type'); // 1. Carros/Camionetas 2. Motos 3. Otros
             $table->integer('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');

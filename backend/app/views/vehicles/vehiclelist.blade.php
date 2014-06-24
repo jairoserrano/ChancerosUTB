@@ -30,6 +30,8 @@
                     <p><strong>Plate</strong>: {{ $veh->plate }} </p>
                     <p><strong>Color</strong>: {{ $veh->color }} </p>
                     <p><strong>Capacity</strong>: {{ $veh->capacity }} </p>
+                    {{ HTML::link('/editvehicle','Edit', array('class' => 'btn btn-success'), true)}}
+                    {{ HTML::link('/removevehicle','Remove', array('class' => 'btn btn-danger'), true)}}
                 </div>
                 @endforeach
                 @endif

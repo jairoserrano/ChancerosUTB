@@ -34,7 +34,7 @@ class VehicleController extends \BaseController {
         $vehicle['users_id'] = Auth::user()->id;
         Vehicle::create($vehicle);
         
-        return Redirect::intended('/profile');
+        return Redirect::intended('/vehiclelist');
         
     }
 
