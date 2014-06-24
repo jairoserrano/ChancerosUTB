@@ -32,6 +32,7 @@ class VehicleController extends \BaseController {
         //
         $vehicle = Input::all();
         $vehicle['users_id'] = Auth::user()->id;
+        $vehicle['status'] = true;
         Vehicle::create($vehicle);
         
         return Redirect::intended('/vehiclelist');

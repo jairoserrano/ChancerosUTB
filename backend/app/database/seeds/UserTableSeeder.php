@@ -10,6 +10,7 @@ class UserTableSeeder extends Seeder {
             'lastname' => 'Apellido',
             'username' => 'user',
             'password' => Hash::make('pass'),
+            'status' => true,
             'email' => 'email@gmail.com'
         ));
 
@@ -18,6 +19,7 @@ class UserTableSeeder extends Seeder {
             'lastname' => 'Apellido2',
             'username' => 'user2',
             'password' => Hash::make('pass2'),
+            'status' => true,
             'email' => 'email2@gmail.com'
         ));
     }

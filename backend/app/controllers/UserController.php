@@ -27,6 +27,7 @@ class UserController extends \BaseController {
     public function store() {
         $post_data = Input::all();
         $post_data['password'] = Hash::make($post_data['password']);
+        $post_data['status'] = true;
         User::create($post_data);
         
         return Redirect::intended('/login');
