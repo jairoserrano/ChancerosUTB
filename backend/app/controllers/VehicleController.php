@@ -33,20 +33,8 @@ class VehicleController extends \BaseController {
         $vehicle = Input::all();
         $vehicle['users_id'] = Auth::user()->id;
         $vehicle['status'] = true;
-        try {
-            $vehicle2 = Vehicle::find($vehicle['id']);
-            $vehicle2->plate = $vehicle['plate'];
-            $vehicle2->color = $vehicle['color'];
-            $vehicle2->brand = $vehicle['brand'];
-            $vehicle2->model = $vehicle['model'];
-            $vehicle2->capacity = $vehicle['capacity'];
-            $vehicle2->type = $vehicle['type'];
-            $vehicle2->save();
-            return Redirect::intended('/vehiclelist');
-        } catch (Exception $e) {
-            Vehicle::create($vehicle);
-            return Redirect::intended('/vehiclelist');
-        }
+        Vehicle::create($vehicle);
+        return Redirect::intended('/vehiclelist');
     }
 
     /**
@@ -79,8 +67,14 @@ class VehicleController extends \BaseController {
      */
     public function update($id) {
         $vehicle = Input::all();
-        $vehicle['status'] = true;
-        Vehicle::update($vehicle);
+        $vehicle2 = Vehicle::find($vehicle['id']);
+        $vehicle2->plate = $vehicle['plate'];
+        $vehicle2->color = $vehicle['color'];
+        $vehicle2->brand = $vehicle['brand'];
+        $vehicle2->model = $vehicle['model'];
+        $vehicle2->capacity = $vehicle['capacity'];
+        $vehicle2->type = $vehicle['type'];
+        $vehicle2->save();
         return Redirect::intended('/vehiclelist');
     }
 

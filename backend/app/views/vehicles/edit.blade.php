@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <h3>Edit Vehicle</h3>
-                    {{Form::open(array('route' => 'vehicle.store' ,'method' => 'POST', 'role'=>'form', 'class'=>'form-inline')) }}
+                    {{Form::open(array('url' => '/vehicle/'.$vehicle->id,'method' => 'PUT', 'role'=>'form', 'class'=>'form-inline')) }}
                     <div class='row'>
                         <div class="col-md-6 col-sm-12|">
                             <div class='form-group form-register'>
