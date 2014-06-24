@@ -30,8 +30,16 @@
                     <p><strong>Plate</strong>: {{ $veh->plate }} </p>
                     <p><strong>Color</strong>: {{ $veh->color }} </p>
                     <p><strong>Capacity</strong>: {{ $veh->capacity }} </p>
-                    {{ HTML::link('/vehicle/'.$veh->id.'/edit','Edit', array('class' => 'btn btn-success'), false)}}
-                    {{ HTML::link('/removevehicle','Remove', array('class' => 'btn btn-danger'), false)}}
+                    <div class="col-md-2">
+                        {{ HTML::link('/vehicle/'.$veh->id.'/edit','Edit', array('class' => 'btn btn-success'), false)}}
+                    </div>
+                    <div class="col-md-5">
+
+                        {{Form::open(array('url' => '/vehicle/'.$veh->id, 'method'=>'DELETE','role'=>'form', 'class'=>'form-inline')) }}
+                        {{ Form::text('id', $veh->id, array('hidden' => 'true')) }}
+                        {{ Form::button('Remove', array('type' => 'submit', 'class' => 'btn btn-danger')) }}
+                        {{Form::close()}}
+                    </div>
                 </div>
                 @endforeach
                 @endif

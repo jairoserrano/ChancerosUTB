@@ -35,12 +35,12 @@ class VehicleController extends \BaseController {
         $vehicle['status'] = true;
         try {
             $vehicle2 = Vehicle::find($vehicle['id']);
-            $vehicle2->plate= $vehicle['plate'];
-            $vehicle2->color= $vehicle['color'];
-            $vehicle2->brand= $vehicle['brand'];
-            $vehicle2->model= $vehicle['model'];
-            $vehicle2->capacity= $vehicle['capacity'];
-            $vehicle2->type= $vehicle['type'];
+            $vehicle2->plate = $vehicle['plate'];
+            $vehicle2->color = $vehicle['color'];
+            $vehicle2->brand = $vehicle['brand'];
+            $vehicle2->model = $vehicle['model'];
+            $vehicle2->capacity = $vehicle['capacity'];
+            $vehicle2->type = $vehicle['type'];
             $vehicle2->save();
             return Redirect::intended('/vehiclelist');
         } catch (Exception $e) {
@@ -90,8 +90,11 @@ class VehicleController extends \BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id) {
-        //
+    public function destroy() {
+        $datos = Input::all();
+        $vehicle = Vehicle::find($datos['id']);
+        $vehicle->delete();
+        return Redirect::intended('/vehiclelist');
     }
 
 }
