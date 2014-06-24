@@ -21,7 +21,7 @@ class CreateChances extends Migration {
             $table->string('comments')->nullable();
             $table->integer('route'); // 1. Avenida 2. Mamonal 3. Bosque 4. Otros
             $table->integer('vehicles_id')->unsigned();
-            $table->foreign('vehicles_id')->references('id')->on('vehicles')->onDelete('set null');
+            $table->foreign('vehicles_id')->references('id')->on('vehicles');
             $table->timestamps();
         });
     }
