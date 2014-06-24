@@ -38,7 +38,8 @@ class SessionsController extends \BaseController {
         if ($attempt) {
             return Redirect::intended('/profile');
         } else {
-            dd('problem');
+           // dd('problem');
+            return View::make('sessions.uplogin');
         }
     }
 

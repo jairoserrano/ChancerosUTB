@@ -74,6 +74,14 @@
                                 {{ Form::text('brand', null, array('placeholder' => 'Brand', 'class' => 'form-control', 'required' => 'required')) }}
                             </div>
                         </div>
+
+                        <div class="col-md-6 col-sm-12">
+                            <div class='form-group form-register'>
+                                {{ Form::label('brand', 'Brand:') }}
+                                <br/>
+                                {{ Form::text('brand', null, array('placeholder' => 'Brand', 'class' => 'form-control', 'required' => 'required')) }}
+                            </div>
+                        </div>
                     </div>
                     <div class='row buttons'>
                         <div class="col-md-6 col-sm-12">
