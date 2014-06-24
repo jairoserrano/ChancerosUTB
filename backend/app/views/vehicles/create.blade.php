@@ -8,18 +8,11 @@
         {{ HTML::style('recursos/css/style.css') }}
     </head>
     <body>        
-        <div class="fullwidth">
-            <div class='container'>
-                <div class='row' id='header'>
-                    <div class="col-md-9" id="logo">ChanceUTB</div>
-                    <div class="col-md-3" id="logo">
-                        <p id="hello"><strong>Hello, {{ Auth::user()->name }} {{ Auth::user()->lastname }}  </strong></p>
-                        <p>{{ HTML::link('/logout','Logout')}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
+        @extends('layouts.master')
+        @section('header')
+            @parent
+        @stop
+        @section('content')
             <div class="row" id="container_first">
                 <div class="col-md-6 hidden-xs">
 
@@ -87,10 +80,11 @@
                     {{ Form::close() }}
                 </div>
             </div>
-        </div>
+        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="recursos/js/jquery-1.9.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         {{ HTML::script('recursos/js/bootstrap.min.js') }}
+        @stop
     </body>
 </html>
