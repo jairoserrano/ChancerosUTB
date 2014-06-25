@@ -6,21 +6,39 @@ class UserTableSeeder extends Seeder {
         DB::table('users')->delete();
 
         User::create(array(
-            'name' => 'Usuario',
-            'lastname' => 'Apellido',
-            'username' => 'user',
-            'password' => Hash::make('pass'),
+            'name' => 'Santiago',
+            'lastname' => 'Mendoza Ramirez',
+            'username' => 'sanmen23',
+            'password' => Hash::make('sanmen'),
             'status' => true,
-            'email' => 'email@gmail.com'
+            'email' => 'santiagomendozar@gmail.com'
         ));
 
         User::create(array(
-            'name' => 'Usuario2',
-            'lastname' => 'Apellido2',
-            'username' => 'user2',
-            'password' => Hash::make('pass2'),
+            'name' => 'Christian',
+            'lastname' => 'Dachiardi Oliveros',
+            'username' => 'ingchristian27',
+            'password' => Hash::make('colombia12345'),
             'status' => true,
-            'email' => 'email2@gmail.com'
+            'email' => 'cristianoliveros_27@hotmail.com'
+        ));
+        
+        User::create(array(
+            'name' => 'Belkis',
+            'lastname' => 'Buelvas Castillo',
+            'username' => 'thebelk',
+            'password' => Hash::make('thomas4'),
+            'status' => true,
+            'email' => 'belkis_belvas06@hotmail.com'
+        ));
+        
+        User::create(array(
+            'name' => 'Jorge',
+            'lastname' => 'Llamas Olivero',
+            'username' => 'jdllamas',
+            'password' => Hash::make('12345'),
+            'status' => true,
+            'email' => 'jotallamas@gmail.com'
         ));
     }
 
