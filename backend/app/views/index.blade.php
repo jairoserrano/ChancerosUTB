@@ -7,7 +7,6 @@
       
         <!-- Bootstrap core CSS -->
         {{ HTML::style('recursos/css/bootstrap.min.css' , array('media'=>'screen')) }}
-        {{ HTML::style('recursos/css/style.css' , array('media'=>'screen')) }}
         {{ HTML::style('bootstrap/css/bootstrap.theme.min.css' , array('media'=>'screen')) }}        
     </head>
     <body>
