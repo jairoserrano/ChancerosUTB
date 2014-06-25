@@ -17,8 +17,11 @@ class SessionsController extends \BaseController {
      * @return Response
      */
     public function create() {
-        
-        return View::make('sessions.create');
+        if (Auth::check()) {
+            return Redirect::intended('profile');
+        } else {
+            return View::make('sessions.create');
+        }
     }
 
     /**
@@ -39,7 +42,7 @@ class SessionsController extends \BaseController {
         if ($attempt) {
             return Redirect::intended('/profile');
         } else {
-           // dd('problem');
+            // dd('problem');
             return View::make('sessions.uplogin');
         }
     }
@@ -82,7 +85,7 @@ class SessionsController extends \BaseController {
      */
     public function destroy() {
         Auth::logout();
-        
+
         return Redirect::intended('login');
     }
 
