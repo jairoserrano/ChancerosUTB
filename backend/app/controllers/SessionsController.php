@@ -17,6 +17,7 @@ class SessionsController extends \BaseController {
      * @return Response
      */
     public function create() {
+        
         return View::make('sessions.create');
     }
 

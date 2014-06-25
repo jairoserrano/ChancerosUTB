@@ -15,8 +15,8 @@
 Route::get('/', 'SessionsController@create');
 
 Route::get('profile', function() {
-    return Auth::user()->email;
-    // return View::make('hello');
+    //return Auth::user()->email;
+    return View::make('index');
 })->before('auth');
 
 Route::get('login', 'SessionsController@create');

@@ -11,23 +11,23 @@
     </head>
     <body>
         @section('header')
-        <div class="fullwidth">
-            <div class='container-fluid'>
-                <div class='row' id='header'>
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-9" id="logo">
-                        <a class="navbar-brand" href="#">ChanceUTB</a>
-                    </div>
-                    <div class="col-md-3" id="logo">
-                        <p id="hello"><strong>Hello, {{ Auth::user()->name }} {{ Auth::user()->lastname }}  </strong></p>
-                    </div>
+        <div class="navbar navbar-inverse navbar-fixed-top header_color" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="col-md-4" id="logo">
+                    <a class="navbar-brand" href="#">ChanceUTB</a>
+                </div>
+                <div class="col-md-4" id="logo">
+                    <p  class="panel-title " ><strong>Hello, {{ Auth::user()->name }} {{ Auth::user()->lastname }}  </strong></p>
+                </div>
+                <div class="col-md-4" id="logo">
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
                             <li>{{ HTML::link('/','Dashboard')}}</a></li>
@@ -39,6 +39,7 @@
                 </div>
             </div>
         </div>
+
         @show
         <div class="container">
             @yield('content')

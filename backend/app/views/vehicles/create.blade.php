@@ -13,6 +13,7 @@
             @parent
         @stop
         @section('content')
+        <br>
             <div class="row" id="container_first">
                 <div class="col-md-6 hidden-xs">
 
