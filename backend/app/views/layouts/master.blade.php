@@ -44,6 +44,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/profile">{{ Auth::user()->name}} {{Auth::user()->lastname }}</a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
