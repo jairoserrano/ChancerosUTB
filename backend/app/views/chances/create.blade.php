@@ -15,7 +15,7 @@
         @parent
         @stop
         @section('content')
-        {{Form::open(array('url' => 'chance.store','role'=>'form')) }}
+        {{Form::open(array('url' => '/chance','role'=>'form', 'method' => 'POST')) }}
         <div class="container-fluid">
 
             <div class="row">
@@ -71,7 +71,7 @@
                 <div class="col-md-6">
                     {{ Form::label('vehicle_id', 'Vehiculo:') }}
                     <br/>
-                    <select class="form-control" id="vehicles_id">
+                    <select class="form-control" id="vehicles_id" name="vehicles_id">
                         @foreach($vehicles as $veh)
                         <option value="{{$veh->id}}">{{$veh->brand}} {{$veh->model}} {{$veh->plate}}</option>
                         @endforeach

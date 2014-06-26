@@ -8,9 +8,7 @@ class ChanceController extends \BaseController {
      * @return Response
      */
     public function index() {
-    /*
-        $vehicle =  DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
-        return View::make('vehicles.vehiclelist')->with('vehicle', $vehicle);*/
+        
     }
 
     /**
@@ -29,14 +27,11 @@ class ChanceController extends \BaseController {
      * @return Response
      */
     public function store() {
-      /*
-        $vehicle = Input::all();
-        $vehicle['users_id'] = Auth::user()->id;
-        $vehicle['status'] = true;
-        Vehicle::create($vehicle);
-        
-        return Redirect::intended('/vehiclelist');
-        */
+        $chance = Input::all();
+        $chance['users_id'] = Auth::user()->id;
+        Chance::create($chance);
+
+        return Redirect::intended('/profile');
     }
 
     /**
@@ -79,4 +74,5 @@ class ChanceController extends \BaseController {
     public function destroy($id) {
         //
     }
+
 }
