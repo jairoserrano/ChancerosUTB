@@ -24,12 +24,16 @@ class UserController extends \BaseController {
      *
      * @return Response
      */
-    public function store() {
+    public function store() {        
         $post_data = Input::all();
-        $post_data['password'] = Hash::make($post_data['password']);
-        $post_data['status'] = true;
-        User::create($post_data);
-        
+        Mail::send('emails.welcome',$data = array('post_data' => $post_data), function($message)
+        {
+            $data = Input::all();
+            $data['password'] = Hash::make($data['password']);
+            $data['status'] = true;
+            User::create($data);
+            $message->to($data['email'], $data['name'])->subject('Welcome to ChancerosUTB!');
+        });
         return Redirect::intended('/login');
     }
 
