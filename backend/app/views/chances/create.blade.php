@@ -7,87 +7,101 @@
         {{ HTML::style('recursos/css/bootstrap.min.css') }}
         {{ HTML::style('recursos/css/style.css') }}
     </head>
-
     <body>        
 
 
-@extends('layouts.master')
+        @extends('layouts.master')
         @section('header')
-           @parent
+        @parent
         @stop
         @section('content')
+        {{Form::open(array('url' => 'chance.store','role'=>'form')) }}
         <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <div class='form-group '>
-                 {{ Form::label('fee', 'fee:') }}
-                 {{ Form::text('fee', null, array('placeholder' => 'fee', 'class' => 'form-control', 'required' => 'required')) }}
-               </div>
-                
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class='form-group '>
+                        {{ Form::label('fee', 'Fee:') }}
+                        <br/>
+                        {{ Form::text('fee', null, array('placeholder' => 'Fee', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[0-9]*', 'title' => 'Must be a number')) }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class='form-group '>
+                        {{ Form::label('date', 'Date:') }}
+                        <br/>
+                        {{ Form::text('date', null, array('placeholder' => 'Date', 'class' => 'form-control', 'required' => 'required')) }}
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <div class='form-group '>
-                 {{ Form::label('date', 'Date:') }}
-                 {{ Form::text('date', null, array('placeholder' => 'date', 'class' => 'form-control', 'required' => 'required')) }}
-               </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class='form-group '>
+                        {{ Form::label('destination', 'Destination:') }}
+                        <br/>
+                        {{ Form::text('destination', null, array('placeholder' => 'Destination', 'class' => 'form-control', 'required' => 'required')) }}
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class='form-group '>
+                        {{ Form::label('departure', 'Departure:') }}
+                        <br/>
+                        {{ Form::text('departure', null, array('placeholder' => 'Departure', 'class' => 'form-control', 'required' => 'required')) }}
+                    </div>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class='form-group '>
+                        {{ Form::label('capacity', 'Capacity:') }}
+                        <br/>
+                        {{ Form::text('capacity', null, array('placeholder' => 'Capacity', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[0-9]*', 'title' => 'Must be a number')) }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class='form-group '>
+                        {{ Form::label('route', 'Route:') }}
+                        <br/>
+                        {{ Form::select('route', array('Route' => array('1' => 'Avenida', '2' => 'Mamonal', '3' => 'Bosque', '4' => 'Otro')),null ,array('class' => 'form-control')); }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ Form::label('vehicle_id', 'Vehiculo:') }}
+                    <br/>
+                    <select class="form-control" id="vehicles_id">
+                        @foreach($vehicles as $veh)
+                        <option value="{{$veh->id}}">{{$veh->brand}} {{$veh->model}} {{$veh->plate}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <div class='form-group '>
+                        {{ Form::label('comments', 'Comments:') }}
+                        <br/>
+                        {{ Form::text('comments', null, array('Comments' => 'Route', 'class' => 'form-control', 'required' => 'required')) }}
+                    </div>
+                </div>
+            </div>
+            <div class='row buttons'>
+                <div class="col-md-6 col-sm-12">
+                    {{ Form::button('Add', array('type' => 'submit', 'class' => 'btn btn-success')) }}  
+                    {{ Form::button('Reset', array('type' => 'reset', 'class' => 'btn btn-default')) }} 
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class='form-group '>
-                 {{ Form::label('destination', 'Destination:') }}
-                 {{ Form::text('destination', null, array('placeholder' => 'destination', 'class' => 'form-control', 'required' => 'required')) }}
-               </div>
-                
-            </div>
-            <div class="col-md-6">
-                <div class='form-group '>
-                 {{ Form::label('departure', 'Departure:') }}
-                 {{ Form::text('departure', null, array('placeholder' => 'departure', 'class' => 'form-control', 'required' => 'required')) }}
-               </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class='form-group '>
-                 {{ Form::label('capacity', 'Capacity:') }}
-                 {{ Form::text('capacity', null, array('placeholder' => 'Capacity', 'class' => 'form-control', 'required' => 'required')) }}
-               </div>
-                
-            </div>
-            <div class="col-md-6">
-                <div class='form-group '>
-                 {{ Form::label('route', 'Route:') }}
-                 {{ Form::text('route', null, array('placeholder' => 'Route', 'class' => 'form-control', 'required' => 'required')) }}
-               </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                 {{ Form::label('route', 'Route:') }}
-                
-             <select class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            </div>
-            <div class="col-md-6">
-                <div class='form-group '>
-                 {{ Form::label('comments', 'Comments:') }}
-                 {{ Form::text('comments', null, array('Comments' => 'Route', 'class' => 'form-control', 'required' => 'required')) }}
-               </div>
-            </div>
-        </div>
-      </div>
-        
-        
-        
+        {{ Form::close() }}
+
+
         <!-- ', '', 'vehicles_id');-->
-       @stop
-          
+        @stop
+
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="recursos/js/jquery-1.9.1.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

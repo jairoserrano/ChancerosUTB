@@ -26,7 +26,7 @@
                             <div class='form-group form-register'>
                                 {{ Form::label('plate', 'Plate:') }}
                                 <br/>
-                                {{ Form::text('plate', null, array('placeholder' => 'Plate', 'class' => 'form-control', 'required' => 'required')) }}
+                                {{ Form::text('plate', null, array('placeholder' => 'Plate', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[A-Za-z][A-Za-z][A-Za-z][0-9][0-9]([A-Za-z]|[0-9])', 'title' => 'Must be a valid plate')) }}
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12">
@@ -49,7 +49,7 @@
                             <div class='form-group form-register'>
                                 {{ Form::label('capacity', 'Capacity:') }}
                                 <br/>
-                                {{ Form::text('capacity', null, array('placeholder' => 'Capacity', 'class' => 'form-control', 'required' => 'required')) }}
+                                {{ Form::text('capacity', null, array('placeholder' => 'Capacity', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[0-9]*', 'title' => 'Must be a number')) }}
                             </div>
                         </div>
                     </div>

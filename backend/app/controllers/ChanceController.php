@@ -19,7 +19,8 @@ class ChanceController extends \BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('chances.create');
+        $vehicles = DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
+        return View::make('chances.create')->with('vehicles', $vehicles);
     }
 
     /**
