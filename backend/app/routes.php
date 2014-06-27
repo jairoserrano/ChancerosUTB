@@ -29,5 +29,6 @@ Route::get('registervehicle', 'VehicleController@create')->before('auth');
 Route::get('vehiclelist', 'VehicleController@index')->before('auth');
 Route::resource('vehicle', 'VehicleController');
 
+Route::get('chanceslist', 'ChanceController@index')->before('auth');
 Route::get('registerchance', 'ChanceController@create')->before('auth');
 Route::resource('chance', 'ChanceController');
