@@ -33,7 +33,7 @@ class ChanceController extends \BaseController {
         $chance['users_id'] = Auth::user()->id;
         Chance::create($chance);
 
-        return Redirect::intended('/profile');
+        return Redirect::intended('/chanceslist');
     }
 
     /**
