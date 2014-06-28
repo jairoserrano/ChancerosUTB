@@ -20,7 +20,11 @@ class ChanceController extends \BaseController {
      */
     public function create() {
         $vehicles = DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
-        return View::make('chances.create')->with('vehicles', $vehicles);
+        if ($vehicles != null) {
+            return View::make('chances.create')->with('vehicles', $vehicles);
+        } else {
+            return View::make('vehicles.create')->with('message', 'You must add a vehicle to create a Chance');
+        }
     }
 
     /**

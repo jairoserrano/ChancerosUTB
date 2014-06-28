@@ -19,6 +19,10 @@
 
                 </div>
                 <div class="col-md-6 col-sm-12">
+                    @if($message!=null)
+                    <h5>Alert:</h5>
+                    <p>{{$message}}</p>
+                    @endif
                     <h3>Add Vehicle</h3>
                     {{Form::open(array('route' => 'vehicle.store','role'=>'form', 'class'=>'form-inline')) }}
                     <div class='row'>

@@ -20,7 +20,7 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function create() {
-        return View::make('vehicles.create');
+        return View::make('vehicles.create')->with('message',null);
     }
 
     /**
