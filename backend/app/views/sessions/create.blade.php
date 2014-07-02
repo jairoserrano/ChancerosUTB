@@ -69,7 +69,7 @@
                         <div class="col-md-6">
                             <div class='form-group form-register'>
                                 {{ Form::label('email', 'Email:') }}
-                                {{ Form::email('email', null, array('placeholder' => 'Email', 'class' => 'form-control', 'required' => 'required')) }}
+                                {{ Form::email('email', null, array('placeholder' => 'Email', 'class' => 'form-control','pattern' => '[A-Za-z]*[0-9]*@unitecnologica.edu.co|[A-Za-z]*[0-9]*@utbvirtual.edu.co','title' => 'Must be @unitecnologica.edu.co or @utbvirtual.edu.co', 'required' => 'required')) }}
                             </div>
                         </div>
                     </div>
