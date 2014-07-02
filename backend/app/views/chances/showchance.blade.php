@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Chances List</title>
+        <title>Chance</title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <!-- Bootstrap -->
         {{ HTML::style('recursos/css/bootstrap.min.css') }}
@@ -16,9 +16,8 @@
         @section('content')
         <!--<div class="container">-->
         <div class="row">
-            @if($chances != null)
-            @foreach($chances as $chance)
-            <div class="col-md-6">
+            @if($chance != null)
+            <div class="col-md-6 col-md-offset-3">
                 <h4><strong>Chance to {{$chance->destination}}</strong></h4>
                 <p>Departure: {{$chance->departure}}</p>
                 <p>Fee: ${{$chance->fee}}</p>
@@ -35,19 +34,13 @@
                     Otro
                     @endif
                 </p>
-                <div class="col-md-3">
-                    {{Form::open(array('url' => '','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
-                    {{ Form::button('Take chance', array('type' => 'submit', 'class' => 'btn btn-success')) }}
-                    <!-- This button is for later, when we add the table and the function of adding comments
-                    {{ Form::button('Add a comment', array('type' => 'reset', 'class' => 'btn btn-default')) }} 
-                    -->
-                    {{Form::close()}}
-                </div>
-                <div class="col-md-6">
-                    {{ HTML::link('/chance/'.$chance->id, 'Details', array('class' => 'btn btn-default'), false)}}
-                </div>
+                {{Form::open(array('url' => '','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
+                {{ Form::button('Take this chance', array('type' => 'submit', 'class' => 'btn btn-success')) }}  
+                <!-- This button is for later, when we add the table and the function of adding comments
+                {{ Form::button('Add a comment', array('type' => 'reset', 'class' => 'btn btn-default')) }} 
+                -->
+                {{Form::close()}}
             </div>
-            @endforeach
             @endif
         </div>
         <!--</div>-->
