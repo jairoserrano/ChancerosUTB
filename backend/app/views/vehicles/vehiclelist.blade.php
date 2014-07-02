@@ -11,37 +11,39 @@
     <body>
         @extends('layouts.master')
         @section('header')
-            @parent
+        @parent
         @stop
         @section('content')
         <!--<div class="container">-->
-            <div class="row">
+        <div class="row">
 
-                @if($vehicle != null)
-                @foreach($vehicle as $veh)
-                <div class="col-md-6">   
-                    <h4><strong>{{ $veh->brand }} {{ $veh->model }}</strong></h4>
-                    <p><strong>Plate</strong>: {{ $veh->plate }} </p>
-                    <p><strong>Color</strong>: {{ $veh->color }} </p>
-                    <p><strong>Capacity</strong>: {{ $veh->capacity }} </p>
-                    <div class="col-md-2">
-                        {{ HTML::link('/vehicle/'.$veh->id.'/edit','Edit', array('class' => 'btn btn-success'), false)}}
-                    </div>
-                    <div class="col-md-5">
-
-                        {{Form::open(array('url' => '/vehicle/'.$veh->id, 'method'=>'DELETE','role'=>'form', 'class'=>'form-inline')) }}
-                        {{ Form::text('id', $veh->id, array('hidden' => 'true')) }}
-                        {{ Form::button('Remove', array('type' => 'submit', 'class' => 'btn btn-danger')) }}
-                        {{Form::close()}}
-                    </div>
+            @if($vehicle != null)
+            @foreach($vehicle as $veh)
+            @if($veh->status != 0)
+            <div class="col-md-6">   
+                <h4><strong>{{ $veh->brand }} {{ $veh->model }}</strong></h4>
+                <p><strong>Plate</strong>: {{ $veh->plate }} </p>
+                <p><strong>Color</strong>: {{ $veh->color }} </p>
+                <p><strong>Capacity</strong>: {{ $veh->capacity }} </p>
+                <div class="col-md-2">
+                    {{ HTML::link('/vehicle/'.$veh->id.'/edit','Edit', array('class' => 'btn btn-success'), false)}}
                 </div>
-                @endforeach
-                @endif
+                <div class="col-md-5">
 
-                <div class="col-md-6">
-
+                    {{Form::open(array('url' => '/vehicle/'.$veh->id, 'method'=>'DELETE','role'=>'form', 'class'=>'form-inline')) }}
+                    {{ Form::text('id', $veh->id, array('hidden' => 'true')) }}
+                    {{ Form::button('Remove', array('type' => 'submit', 'class' => 'btn btn-danger')) }}
+                    {{Form::close()}}
                 </div>
             </div>
+            @endif
+            @endforeach
+            @endif
+
+            <div class="col-md-6">
+
+            </div>
+        </div>
         <!--</div>-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="recursos/js/jquery-1.9.1.min.js"></script>

@@ -13,7 +13,7 @@ class CreateVehicles extends Migration {
     public function up() {
         Schema::create('vehicles', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('plate');
+            $table->string('plate')->unique();
             $table->string('color');
             $table->string('brand');
             $table->string('model');

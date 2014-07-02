@@ -87,7 +87,8 @@ class VehicleController extends \BaseController {
     public function destroy() {
         $datos = Input::all();
         $vehicle = Vehicle::find($datos['id']);
-        $vehicle->delete();
+        $vehicle->status=0;
+        $vehicle->save();
         return Redirect::intended('/vehiclelist');
     }
 
