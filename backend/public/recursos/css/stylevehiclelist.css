@@ -1,0 +1,11 @@
+#panelvehicle{
+    width: 100%;
+    padding: 15px;
+    margin-top:10px; 
+}
+.show {
+  display: block !important;
+}
+.hide {
+  display: none !important;
+}
