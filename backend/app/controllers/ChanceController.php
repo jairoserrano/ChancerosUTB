@@ -47,6 +47,10 @@ class ChanceController extends \BaseController {
      * @return Response
      */
     public function show($id) {
+        //$id = Input::all();
+        $chance = Chance::find($id);
+        return View::make('chances.showchance')->with('chance', $chance);
+        
         //$vehicle = Vehicle::find($id)->toJson();
         //return $vehicle;
     }
