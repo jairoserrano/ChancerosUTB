@@ -1,12 +1,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>login chanceros UTB</title>
+        <title>Chanceros UTB</title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
         <!-- Bootstrap core CSS -->
         {{ HTML::style('recursos/css/bootstrap.min.css' , array('media'=>'screen')) }}
-        {{ HTML::style('bootstrap/css/bootstrap.theme.min.css' , array('media'=>'screen')) }}   
+        {{ HTML::style('recursos/css/bootstrap-theme.min.css' , array('media'=>'screen')) }}
         {{ HTML::style('recursos/css/style.css' , array('media'=>'screen')) }}
     </head>
     <body>
@@ -41,14 +40,10 @@
         <div class="container">
             @yield('content')
         </div>
-
         <footer>
             <div class="contentfooter">
                 @yield('footer')
-
-
             </div>
         </footer>
     </body>
 </html>
-
