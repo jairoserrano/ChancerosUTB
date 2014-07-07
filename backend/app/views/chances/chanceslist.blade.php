@@ -12,11 +12,16 @@
           </div>
           <div class="panel-body">
             <div class="row">
-              <div class="col-xs-8">{{$chance->date}}</div>
-              <div class="col-xs-4">C {{$chance->capacity}}</div>
+              <div class="col-xs-12 glyphicon glyphicon-flag">
+                {{$chance->vehicles_id}}
+              </div>
             </div>
             <div class="row">
-              <div class="col-xs-8">
+              <div class="col-xs-9 glyphicon glyphicon-calendar"> {{$chance->date}}</div>
+              <div class="col-xs-3 glyphicon glyphicon-user"> {{$chance->capacity}}</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-8 glyphicon glyphicon-road">
                 Route:
                   @if($chance->route==1) Avenida
                     @elseif($chance->route==2) Mamonal
@@ -24,12 +29,12 @@
                     @elseif($chance->route==4) Otro
                   @endif
                 </div>
-                <div class="col-xs-4">${{$chance->fee}}</div>
+                <div class="col-xs-4 glyphicon glyphicon-usd"> {{$chance->fee}}</div>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-6">
-                {{ Form::open(array('url' => '','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
+                {{ Form::open(array('url' => '/userofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
                 {{ Form::button(' Take!', array('type' => 'submit', 'class' => 'glyphicon glyphicon-hand-up btn btn-success')) }}
                 {{ Form::close() }}
               </div>

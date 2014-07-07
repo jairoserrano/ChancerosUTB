@@ -50,6 +50,9 @@
 .chancelist {
   margin-right:10px;
 }
-.chancelist .panel-title {
+.chancelist .row {
+  margin-bottom: 10px;
+}
+.panel-title {
   color: #3c763d;;
 }
