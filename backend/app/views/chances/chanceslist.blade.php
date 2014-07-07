@@ -21,15 +21,14 @@
               <div class="col-xs-3 glyphicon glyphicon-user"> {{$chance->capacity}}</div>
             </div>
             <div class="row">
-              <div class="col-xs-8 glyphicon glyphicon-road">
-                Route:
+              <div class="col-xs-7 glyphicon glyphicon-road">
                   @if($chance->route==1) Avenida
                     @elseif($chance->route==2) Mamonal
                     @elseif($chance->route==3) Bosque
                     @elseif($chance->route==4) Otro
                   @endif
                 </div>
-                <div class="col-xs-4 glyphicon glyphicon-usd"> {{$chance->fee}}</div>
+                <div class="col-xs-5 glyphicon glyphicon-usd"> {{$chance->fee}}</div>
               </div>
             </div>
             <div class="row">
