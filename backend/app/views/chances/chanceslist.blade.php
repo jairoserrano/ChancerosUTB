@@ -40,10 +40,4 @@
       </div>
     @endforeach
     @endif
-
-<!--</div>-->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="recursos/js/jquery-1.9.1.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-{{ HTML::script('recursos/js/bootstrap.min.js') }}
 @stop
