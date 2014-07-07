@@ -17,23 +17,6 @@
         @section('content')
         {{Form::open(array('url' => '/chance','role'=>'form', 'method' => 'POST')) }}
         <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class='form-group '>
-                        {{ Form::label('fee', 'Fee:') }}
-                        <br/>
-                        {{ Form::text('fee', null, array('placeholder' => 'Fee', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[0-9]*', 'title' => 'Must be a number')) }}
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class='form-group '>
-                        {{ Form::label('date', 'Date:') }}
-                        <br/>
-                        {{ Form::text('date', null, array('placeholder' => 'Date', 'class' => 'form-control', 'required' => 'required')) }}
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class='form-group '>
@@ -54,17 +37,50 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class='form-group '>
+                        {{ Form::label('date', 'Date:') }}
+                        <br/>
+                        {{ Form::text('date', null, array('placeholder' => 'Date', 'class' => 'form-control', 'required' => 'required')) }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class='form-group '>
                         {{ Form::label('capacity', 'Capacity:') }}
                         <br/>
                         {{ Form::text('capacity', null, array('placeholder' => 'Capacity', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[0-9]*', 'title' => 'Must be a number')) }}
                     </div>
                 </div>
+            </div>
+            <!--  -->
+            <div class="row">
+
                 <div class="col-md-6">
                     <div class='form-group '>
                         {{ Form::label('route', 'Route:') }}
                         <br/>
                         {{ Form::select('route', array('Route' => array('1' => 'Avenida', '2' => 'Mamonal', '3' => 'Bosque', '4' => 'Otro')),null ,array('class' => 'form-control')); }}
                     </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class='form-group'>
+                        {{ Form::label('fee', 'Fee:') }}
+                        <br/>
+                        {{ Form::text('fee', null, array('placeholder' => 'Fee', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[0-9]*', 'title' => 'Must be a number')) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+
                 </div>
             </div>
             <div class="row">

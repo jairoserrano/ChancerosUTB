@@ -54,10 +54,18 @@
                     <div class='row'>
                         <div class="col-md-6">
                             <div class='form-group form-register'>
-                                {{ Form::label('username', 'Usermame:') }}
-                                {{ Form::text('username', null, array('placeholder' => 'Usermame', 'class' => 'form-control', 'required' => 'required')) }}
+                                {{ Form::label('email', 'Email:') }}
+                                {{ Form::text('email', null, array('placeholder' => 'Email', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[A-Za-z]*[0-9]*@unitecnologica.edu.co|[A-Za-z]*[0-9]*@utbvirtual.edu.co','title' => 'Must be @unitecnologica.edu.co or @utbvirtual.edu.co')) }}
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class='form-group form-register'>
+                                {{ Form::label('confirmemail', 'Confirm Email:') }}
+                                {{ Form::email('confirmemail', null, array('placeholder' => 'Confirm Email', 'class' => 'form-control','pattern' => '[A-Za-z]*[0-9]*@unitecnologica.edu.co|[A-Za-z]*[0-9]*@utbvirtual.edu.co','title' => 'Must be @unitecnologica.edu.co or @utbvirtual.edu.co', 'required' => 'required')) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
                         <div class="col-md-6">
                             <div class="form-group form-register">
                                 {{ Form::label('password', 'Password:') }}
@@ -65,22 +73,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class='row'>
-                        <div class="col-md-6">
-                            <div class='form-group form-register'>
-                                {{ Form::label('email', 'Email:') }}
-                                {{ Form::email('email', null, array('placeholder' => 'Email', 'class' => 'form-control','pattern' => '[A-Za-z]*[0-9]*@unitecnologica.edu.co|[A-Za-z]*[0-9]*@utbvirtual.edu.co','title' => 'Must be @unitecnologica.edu.co or @utbvirtual.edu.co', 'required' => 'required')) }}
-                            </div>
-                        </div>
-                    </div>
                     <div class='row buttons'>
                         <div class="col-md-6">
-
                             {{ Form::button('Sign up', array('type' => 'submit', 'class' => 'btn btn-success')) }}  
                             {{ Form::button('Reset', array('type' => 'reset', 'class' => 'btn btn-default')) }} 
                         </div>
                         <div class="col-md-6">
-                            
+
                         </div>
                     </div>
                     {{ Form::close() }}
