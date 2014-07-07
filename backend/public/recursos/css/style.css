@@ -21,13 +21,13 @@
 }
 .title_page{
     color: #fff;
- 
+
     text-transform: uppercase;
-    
+
 }
 .pading_top{
     padding-top: 50px;
-    
+
 }
 
 .buttons{
@@ -45,3 +45,5 @@
 #bs-example-navbar-collapse-1 .navbar-nav>li>a:focus, #bs-example-navbar-collapse-1 .navbar-nav>li>a:hover{
     background-color: #2FBE6E;
 }
+
+/* Lista de chances */

@@ -1,12 +1,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>login chanceros UTB</title>
+        <title>Chanceros UTB</title>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-
         <!-- Bootstrap core CSS -->
         {{ HTML::style('recursos/css/bootstrap.min.css' , array('media'=>'screen')) }}
-        {{ HTML::style('bootstrap/css/bootstrap.theme.min.css' , array('media'=>'screen')) }}   
+        {{ HTML::style('recursos/css/bootstrap-theme.min.css' , array('media'=>'screen')) }}
         {{ HTML::style('recursos/css/style.css' , array('media'=>'screen')) }}
     </head>
     <body>
@@ -27,20 +26,8 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Chances<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/chanceslist">Search Chances</a></li>
-                                <li><a href="/registerchance">Add Chance</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vehicle <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/vehiclelist">Vehicle List</a></li>
-                                <li><a href="/registervehicle">Register Vehicle</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="/chanceslist">Home</a></li>
+                        <li><a href="/registerchance">New Chance</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/profile">{{ Auth::user()->name}} {{Auth::user()->lastname }}</a></li>
@@ -53,14 +40,14 @@
         <div class="container">
             @yield('content')
         </div>
-
         <footer>
             <div class="contentfooter">
                 @yield('footer')
-
-
             </div>
         </footer>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="recursos/js/jquery-1.9.1.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        {{ HTML::script('recursos/js/bootstrap.min.js') }}
     </body>
 </html>
-

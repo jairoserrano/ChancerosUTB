@@ -8,37 +8,37 @@ class UserTableSeeder extends Seeder {
         User::create(array(
             'name' => 'Santiago',
             'lastname' => 'Mendoza Ramirez',
-            'username' => 'sanmen23',
+            'email' => 'santiagomendozar@gmail.com',
             'password' => Hash::make('sanmen'),
             'status' => true,
-            'email' => 'santiagomendozar@gmail.com'
+            'confirmemail' => 'santiagomendozar@gmail.com'
         ));
 
         User::create(array(
             'name' => 'Christian',
             'lastname' => 'Dachiardi Oliveros',
-            'username' => 'ingchristian27',
+            'email' => 'cristianoliveros_27@hotmail.com',
             'password' => Hash::make('colombia12345'),
             'status' => true,
-            'email' => 'cristianoliveros_27@hotmail.com'
+            'confirmemail' => 'cristianoliveros_27@hotmail.com'
         ));
         
         User::create(array(
             'name' => 'Belkis',
             'lastname' => 'Buelvas Castillo',
-            'username' => 'thebelk',
+            'email' => 'belkis_buelvas06@hotmail.com',
             'password' => Hash::make('thomas4'),
             'status' => true,
-            'email' => 'belkis_buelvas06@hotmail.com'
+            'confirmemail' => 'belkis_buelvas06@hotmail.com'
         ));
         
         User::create(array(
             'name' => 'Jorge',
             'lastname' => 'Llamas Olivero',
-            'username' => 'jdllamas',
+            'email' => 'jotallamas@gmail.com',
             'password' => Hash::make('12345'),
             'status' => true,
-            'email' => 'jotallamas@gmail.com'
+            'confirmemail' => 'jotallamas@gmail.com'
         ));
     }
 

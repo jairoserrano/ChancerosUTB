@@ -15,8 +15,8 @@ class CreateUsers extends Migration {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('lastname')->nullable();
-            $table->string('username');
             $table->string('email')->unique();
+            $table->string('confirmemail')->unique();
             $table->string('password');
             $table->boolean('status');
             $table->string('remember_token')->nullable();
