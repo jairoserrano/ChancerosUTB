@@ -6,26 +6,26 @@
 <!--<div class="container">-->
 @if($chances != null)
   @foreach($chances as $chance)
-      <div class="col-xs-12 col-md-4 chance">
-          <div class="row">
-            <div class="col-xs-12">
-              <strong class="glyphicon glyphicon-hand-right"> {{$chance->departure}} to {{$chance->destination}}</strong>
+      <div class="col-xs-12 col-md-4 panel panel-success chancelist">
+          <div class="row panel-heading">
+              <h3 class="panel-title glyphicon glyphicon-hand-right"> {{$chance->departure}} to {{$chance->destination}}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-8">{{$chance->date}}</div>
+              <div class="col-xs-4">C {{$chance->capacity}}</div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-8">{{$chance->date}}</div>
-            <div class="col-xs-4">C {{$chance->capacity}}</div>
-          </div>
-          <div class="row">
-            <div class="col-xs-8">
-              Route:
-                @if($chance->route==1) Avenida
-                  @elseif($chance->route==2) Mamonal
-                  @elseif($chance->route==3) Bosque
-                  @elseif($chance->route==4) Otro
-                @endif
+            <div class="row">
+              <div class="col-xs-8">
+                Route:
+                  @if($chance->route==1) Avenida
+                    @elseif($chance->route==2) Mamonal
+                    @elseif($chance->route==3) Bosque
+                    @elseif($chance->route==4) Otro
+                  @endif
+                </div>
+                <div class="col-xs-4">${{$chance->fee}}</div>
               </div>
-              <div class="col-xs-4">${{$chance->fee}}</div>
             </div>
             <div class="row">
               <div class="col-xs-6">
@@ -38,6 +38,7 @@
               </div>
           </div>
       </div>
+      <hr class="hidden-md hidden-lg visible-xs"/>
     @endforeach
     @endif
 

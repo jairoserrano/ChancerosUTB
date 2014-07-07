@@ -47,3 +47,9 @@
 }
 
 /* Lista de chances */
+.chancelist {
+  margin-right:10px;
+}
+.chancelist .panel-title {
+  color: #3c763d;;
+}
