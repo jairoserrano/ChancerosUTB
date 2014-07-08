@@ -16,7 +16,7 @@ class UsersofChanceTable extends Migration {
             $table->integer('chances_id')->unsigned();
             $table->foreign('chances_id')->references('id')->on('chances')->onDelete('cascade');
             $table->integer('users_id')->unsigned();
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

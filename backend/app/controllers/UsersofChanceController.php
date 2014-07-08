@@ -31,7 +31,10 @@ class UsersofChanceController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$data = Input::all();
+                $data['users_id'] = Auth::user()->id;
+                UserofChance::create($data);
+                return Redirect::intended('/chance/');
 	}
 
 

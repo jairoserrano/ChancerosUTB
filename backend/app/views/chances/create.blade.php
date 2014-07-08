@@ -27,7 +27,7 @@
             <div class='form-group '>
                 {{ Form::label('date', 'Date:') }}
                 <br/>
-                {{ Form::text('date', null, array('placeholder' => 'Date', 'class' => 'form-control', 'required' => 'required')) }}
+                <input type='datetime-local' id='date' name='date' class='form-control'/>
             </div>
         </div>
         <div class="col-md-6">
@@ -55,20 +55,6 @@
                 <br/>
                 {{ Form::text('fee', null, array('placeholder' => 'Fee', 'class' => 'form-control', 'required' => 'required', 'pattern' => '[0-9]*', 'title' => 'Must be a number')) }}
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
-
         </div>
     </div>
     <div class="row">
