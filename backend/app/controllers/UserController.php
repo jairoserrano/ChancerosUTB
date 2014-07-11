@@ -54,7 +54,8 @@ class UserController extends \BaseController {
      * @return Response
      */
     public function edit($id) {
-        //
+        $user = User::find($id);
+        return View::make('users.edit')->with('user', $user);
     }
 
     /**
@@ -64,7 +65,14 @@ class UserController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+        $user = Input::all();
+        $user2 = User::find($user['id']);
+        $user2->name = $user['name'];
+        $user2->lastname = $user['lastname'];
+        $user2->email = $user['email'];
+        $user2->password = $user['password'];
+        $user2->save();
+        return Redirect::intended('/profile');
     }
 
     /**
