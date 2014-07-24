@@ -20,7 +20,7 @@ class UsersofChanceController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		//return View::make('chances.create')->with('vehicles', $vehicles);
 	}
 
 
@@ -34,7 +34,7 @@ class UsersofChanceController extends \BaseController {
 		$data = Input::all();
                 $data['users_id'] = Auth::user()->id;
                 UserofChance::create($data);
-                return Redirect::intended('/chance/');
+                return Redirect::intended('/chanceslist/');
 	}
 
 

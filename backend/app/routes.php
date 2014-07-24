@@ -33,3 +33,6 @@ Route::resource('vehicle', 'VehicleController');
 Route::get('chanceslist', 'ChanceController@index')->before('auth');
 Route::get('registerchance', 'ChanceController@create')->before('auth');
 Route::resource('chance', 'ChanceController');
+
+Route::resource('usersofchance', 'UsersofChanceController');
+

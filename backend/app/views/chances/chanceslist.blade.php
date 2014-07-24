@@ -33,8 +33,9 @@
             </div>
             <div class="row">
               <div class="col-xs-6">
-                {{ Form::open(array('url' => '/userofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
-                {{ Form::button(' Take!', array('type' => 'submit', 'class' => 'glyphicon glyphicon-hand-up btn btn-success')) }}
+                {{ Form::open(array('url' => 'usersofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
+                {{ Form::button('Take!', array('type' => 'submit', 'class' => 'glyphicon glyphicon-hand-up btn btn-success')) }}
+                <input type="hidden" name="chances_id" value="{{$chance->id}}" id="chances_id"/>
                 {{ Form::close() }}
               </div>
               <div class="col-xs-6">
