@@ -9,7 +9,7 @@
 
     </div>
     <div class="col-md-6 col-sm-12">
-        @if($message!=null)
+        @if(isset($message))
         <h5>Alert:</h5>
         <p>{{$message}}</p>
         @endif
