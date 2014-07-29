@@ -31,6 +31,7 @@
                 <div class="col-xs-5 glyphicon glyphicon-usd"> {{$chance->fee}}</div>
               </div>
             </div>
+          @{{ 'lala'}}
             <div class="row">
               <div class="col-xs-6">
                 {{ Form::open(array('url' => 'usersofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}

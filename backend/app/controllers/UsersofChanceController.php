@@ -34,6 +34,9 @@ class UsersofChanceController extends \BaseController {
 		$data = Input::all();
                 $data['users_id'] = Auth::user()->id;
                 UserofChance::create($data);
+                $chance = Chance::find($data['chances_id']);
+                $chance->capacity = $chance->capacity-1;
+
                 return Redirect::intended('/chanceslist/');
 	}
 

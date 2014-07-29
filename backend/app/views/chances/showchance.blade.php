@@ -27,6 +27,7 @@
               </div>
               <div class="col-xs-4">${{$chance->fee}}</div>
             </div>
+        
             <div class="row">
               <div class="col-xs-6">
                 {{ Form::open(array('url' => 'usersofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}

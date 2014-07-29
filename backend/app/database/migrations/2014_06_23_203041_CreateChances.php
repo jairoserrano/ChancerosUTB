@@ -14,7 +14,8 @@ class CreateChances extends Migration {
         Schema::create('chances', function(Blueprint $table) {
             $table->increments('id');
             $table->float('fee')->nullable();
-            $table->datetime('date');
+            $table->date('date');
+            $table->string('hour');
             $table->string('destination');
             $table->string('departure');
             $table->integer('capacity');

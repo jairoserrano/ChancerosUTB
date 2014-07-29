@@ -6,6 +6,7 @@ class UserTableSeeder extends Seeder {
         DB::table('users')->delete();
 
         User::create(array(
+            'id' => 1,
             'name' => 'Santiago',
             'lastname' => 'Mendoza Ramirez',
             'email' => 'santiagomendozar@gmail.com',
@@ -15,6 +16,7 @@ class UserTableSeeder extends Seeder {
         ));
 
         User::create(array(
+            'id' => 2,
             'name' => 'Christian',
             'lastname' => 'Dachiardi Oliveros',
             'email' => 'cristianoliveros_27@hotmail.com',
@@ -24,6 +26,7 @@ class UserTableSeeder extends Seeder {
         ));
         
         User::create(array(
+            'id' => 3,
             'name' => 'Belkis',
             'lastname' => 'Buelvas Castillo',
             'email' => 'belkis_buelvas06@hotmail.com',
@@ -33,6 +36,7 @@ class UserTableSeeder extends Seeder {
         ));
         
         User::create(array(
+            'id' => 4,
             'name' => 'Jorge',
             'lastname' => 'Llamas Olivero',
             'email' => 'jotallamas@gmail.com',

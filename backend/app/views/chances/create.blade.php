@@ -24,10 +24,19 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class='form-group '>
-                {{ Form::label('date', 'Date:') }}
-                <br/>
-                <input type='datetime-local' id='date' name='date' class='form-control'/>
+            <div class="col-md-6">
+                <div class='form-group '>
+                    {{ Form::label('date', 'Date:') }}
+                    <br/>
+                    <input type='date' id='date' name='date' class='form-control'/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class='form-group '>
+                    {{ Form::label('hour', 'Hour (24 hours):') }}
+                    <br/>
+                    <input type='text' id='hour' name='hour' class='form-control' placeholder='10:00' pattern="[0-9]([0-9]|):[0-9][0-9]"/>
+                </div>
             </div>
         </div>
         <div class="col-md-6">
