@@ -28,10 +28,23 @@ class UsersofChanceController extends \BaseController {
      */
     public function store() {
         $data = Input::all();
-        $data['users_id'] = Auth::user()->id;
-        $chance = Chance::find($data['chances_id']);
-        if ($data['users_id'] == $chance->users_id) {
-            return View::make('chances.chanceslist')->with('message', 'You created this chance');
+
+        $idchance = $data['chances_id'];
+        $iduser = Auth::user()->id;
+
+        $data['users_id'] = $iduser;
+        $chance = Chance::find($idchance);
+
+        $userofchances = DB::table('usersofchance')
+                ->where('chances_id', '=', $idchance)
+                ->where('users_id', '=', $iduser)
+                ->get();
+        if ($userofchances != null) {
+            return Redirect::intended('/chanceslist')->with('message', 'You have already taken this chance');
+        }
+        $vehicle = Vehicle::find($chance->vehicles_id);
+        if ($vehicle->users_id == $iduser) {
+            return Redirect::intended('/chanceslist')->with('message', 'You created this chance');
         } else {
             UserofChance::create($data);
             $chance->capacity = $chance->capacity - 1;
