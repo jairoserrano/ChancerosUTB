@@ -10,7 +10,15 @@ class ChanceController extends \BaseController {
     public function index() {
         //$chances = Chance::all();
         $chances = DB::table('chances')->where('date', '>=', new DateTime('today'))->get();
-        return View::make('chances.chanceslist')->with('chances', $chances);
+        $vehicles = array();
+        $i=0;
+        foreach($chances as $chance)
+        {
+        $vehicles[$i]= (Vehicle::find($chance->vehicles_id));
+        $i++;
+        }
+        $array = ['chances' => $chances, 'vehicles' => $vehicles];
+        return View::make('chances.chanceslist')->with('array', ['chances' => $chances, 'vehicles' => $vehicles]);
     }
 
     /**

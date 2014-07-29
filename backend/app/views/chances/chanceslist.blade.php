@@ -5,24 +5,30 @@
 @section('content')
 <!--<div class="container">-->
 @if(isset($message))
-    <h4>Alert!</h4>
-    <p>{{ $message }}</p>
+<h4>Alert!</h4>
+<p>{{ $message }}</p>
 @endif
-@if($chances != null)
-@foreach($chances as $chance)
+@if($array != null)
+@foreach($array['chances'] as $chance)
+@if($chance->capacity != 0)
 <div class="col-xs-12 col-md-4 panel panel-success chancelist">
     <div class="row panel-heading">
         <h3 class="panel-title glyphicon glyphicon-hand-right"> {{$chance->departure}} to {{$chance->destination}}</h3>
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-xs-12 glyphicon glyphicon-flag">
-                {{$chance->vehicles_id}}
+            <div class="col-xs-7 glyphicon glyphicon-flag">
+                @foreach($array['vehicles'] as $vehicle)
+                @if( $chance->vehicles_id == $vehicle->id)
+                {{ $vehicle->brand }} {{ $vehicle->model }}
+                @endif
+                @endforeach
             </div>
+            <div class="col-xs-5 glyphicon glyphicon-user"> {{$chance->capacity}}</div>
         </div>
         <div class="row">
-            <div class="col-xs-9 glyphicon glyphicon-calendar"> {{$chance->date}}</div>
-            <div class="col-xs-3 glyphicon glyphicon-user"> {{$chance->capacity}}</div>
+            <div class="col-xs-7 glyphicon glyphicon-calendar"> {{$chance->date}}</div>
+            <div class="col-xs-5 glyphicon glyphicon-time"> {{$chance->hour}}</div>
         </div>
         <div class="row">
             <div class="col-xs-7 glyphicon glyphicon-road">
@@ -48,6 +54,7 @@
     </div>
 </div>
 <hr class="hidden-md hidden-lg visible-xs"/>
+@endif
 @endforeach
 @endif
 @stop
