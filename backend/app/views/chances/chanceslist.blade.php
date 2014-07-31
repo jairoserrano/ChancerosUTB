@@ -43,17 +43,25 @@
                 {{$chance->vehicles->users->name}} {{$chance->vehicles->users->lastname}}
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-6 col-md-6">
+                {{ Form::open(array('url' => 'usersofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
+                {{ Form::button('Take!', array('type' => 'submit', 'class' => 'glyphicon glyphicon-ok-sign btn btn-success', 'id' => 'forms-buttons')) }}
+                <input type="hidden" name="chances_id" value="{{$chance->id}}" id="chances_id"/>
+                {{ Form::close() }}
+            </div>
+            <div class="col-xs-6 col-md-6">
+                {{ HTML::link('/chance/'.$chance->id, 'Details', array('class' => 'glyphicon glyphicon-info-sign btn btn-info', 'id' => 'forms-buttons'), false)}}
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-xs-6 col-md-6">
-            {{ Form::open(array('url' => 'usersofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
-            {{ Form::button('Take!', array('type' => 'submit', 'class' => 'glyphicon glyphicon-ok-sign btn btn-success', 'id' => 'forms-buttons')) }}
-            <input type="hidden" name="chances_id" value="{{$chance->id}}" id="chances_id"/>
-            {{ Form::close() }}
+    <div class="panel-footer">
+        @foreach($chance->userofchances as $var)
+        <div class="row">
+            {{ $var->users->name }} {{ $var->users->lastname }}
         </div>
-        <div class="col-xs-6 col-md-6">
-            {{ HTML::link('/chance/'.$chance->id, 'Details', array('class' => 'glyphicon glyphicon-info-sign btn btn-info', 'id' => 'forms-buttons'), false)}}
-        </div>
+        @endforeach
     </div>
 </div>
 <hr class="hidden-md hidden-lg visible-xs"/>

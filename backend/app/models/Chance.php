@@ -8,4 +8,8 @@ class Chance extends Eloquent {
     public function vehicles() {
         return $this->belongsTo('Vehicle');
     }
+    
+    public function userofchances(){
+        return $this->hasMany('UserofChance', 'chances_id', 'id');
+    }
 }
