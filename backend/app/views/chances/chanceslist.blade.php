@@ -20,7 +20,7 @@
             <div class="col-xs-12 col-md-7 glyphicon glyphicon-flag">
                 {{ $chance->vehicles->brand }} {{ $chance->vehicles->model }}
             </div>
-            <div class="col-xs-12 col-md-5 glyphicon glyphicon-user"> {{$chance->capacity}}</div>
+            <div class="col-xs-12 col-md-5 glyphicon glyphicon-download-alt"> {{$chance->capacity}}</div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-7 glyphicon glyphicon-calendar"> {{$chance->date}}</div>
@@ -35,6 +35,13 @@
                 @endif
             </div>
             <div class="col-xs-12 col-md-5 glyphicon glyphicon-usd"> {{$chance->fee}}</div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 glyphicon glyphicon-user">
+                {{$chance->vehicles->users->name}} {{$chance->vehicles->users->lastname}}
+            </div>
         </div>
     </div>
     <div class="row">
