@@ -6,7 +6,6 @@ class Chance extends Eloquent {
     protected $fillable = array('fee', 'date', 'hour', 'destination', 'departure', 'capacity', 'comments', 'route', 'vehicles_id');
 
     public function vehicles() {
-        return $this->belongsTo('Chances');
+        return $this->belongsTo('Vehicle');
     }
-
 }

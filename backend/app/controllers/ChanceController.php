@@ -9,16 +9,16 @@ class ChanceController extends \BaseController {
      */
     public function index() {
         //$chances = Chance::all();
-        $chances = DB::table('chances')->where('date', '>=', new DateTime('today'))->get();
-        $vehicles = array();
-        $i=0;
-        foreach($chances as $chance)
-        {
-        $vehicles[$i]= (Vehicle::find($chance->vehicles_id));
-        $i++;
-        }
-        $array = ['chances' => $chances, 'vehicles' => $vehicles];
-        return View::make('chances.chanceslist')->with('array', ['chances' => $chances, 'vehicles' => $vehicles]);
+        $chances = Chance::where('date', '>=', new DateTime('today'))->get();
+//        $vehicles = array();
+//        $i=0;
+//        foreach($chances as $chance)
+//        {
+//        $vehicles[$i]= (Vehicle::find($chance->vehicles_id));
+//        $i++;
+//        }
+        //dd($chances);
+        return View::make('chances.chanceslist', compact('chances') );
     }
 
     /**
@@ -58,7 +58,7 @@ class ChanceController extends \BaseController {
         //$id = Input::all();
         $chance = Chance::find($id);
         return View::make('chances.showchance')->with('chance', $chance);
-        
+
         //$vehicle = Vehicle::find($id)->toJson();
         //return $vehicle;
     }

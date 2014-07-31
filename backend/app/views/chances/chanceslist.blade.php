@@ -8,8 +8,8 @@
 <h4>Alert!</h4>
 <p>{{ $message }}</p>
 @endif
-@if($array != null)
-@foreach($array['chances'] as $chance)
+@if($chances != null)
+@foreach($chances as $chance)
 @if($chance->capacity != 0)
 <div class="col-xs-12 col-md-4 panel panel-success chancelist">
     <div class="row panel-heading">
@@ -18,11 +18,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-xs-12 col-md-7 glyphicon glyphicon-flag">
-                @foreach($array['vehicles'] as $vehicle)
-                @if( $chance->vehicles_id == $vehicle->id)
-                {{ $vehicle->brand }} {{ $vehicle->model }}
-                @endif
-                @endforeach
+                {{ $chance->vehicles->brand }} {{ $chance->vehicles->model }}
             </div>
             <div class="col-xs-12 col-md-5 glyphicon glyphicon-user"> {{$chance->capacity}}</div>
         </div>
