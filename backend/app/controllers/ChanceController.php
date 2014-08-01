@@ -8,16 +8,7 @@ class ChanceController extends \BaseController {
      * @return Response
      */
     public function index() {
-        //$chances = Chance::all();
         $chances = Chance::where('date', '>=', new DateTime('today'))->get();
-//        $vehicles = array();
-//        $i=0;
-//        foreach($chances as $chance)
-//        {
-//        $vehicles[$i]= (Vehicle::find($chance->vehicles_id));
-//        $i++;
-//        }
-        //dd($chances);
         return View::make('chances.chanceslist', compact('chances') );
     }
 
@@ -27,9 +18,9 @@ class ChanceController extends \BaseController {
      * @return Response
      */
     public function create() {
-        $vehicles = DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
+        $vehicles = Vehicle::where('users_id', '=', Auth::user()->id)->get();
         if ($vehicles != null) {
-            return View::make('chances.create')->with('vehicles', $vehicles);
+            return View::make('chances.create', compact('vehicles'));
         } else {
             return View::make('vehicles.create')->with('message', 'You must add a vehicle to create a Chance');
         }
@@ -44,7 +35,6 @@ class ChanceController extends \BaseController {
         $chance = Input::all();
         $chance['users_id'] = Auth::user()->id;
         Chance::create($chance);
-
         return Redirect::intended('/chanceslist');
     }
 
@@ -55,12 +45,8 @@ class ChanceController extends \BaseController {
      * @return Response
      */
     public function show($id) {
-        //$id = Input::all();
         $chance = Chance::find($id);
-        return View::make('chances.showchance')->with('chance', $chance);
-
-        //$vehicle = Vehicle::find($id)->toJson();
-        //return $vehicle;
+        return View::make('chances.showchance', compact('chance'));
     }
 
     /**

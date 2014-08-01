@@ -61,9 +61,12 @@
     <div class="panel-footer">
         @foreach($chance->userofchances as $var)
         <div class="row">
+            <p>
             <a href="/user/{{$var->users->id}}">
                 {{ $var->users->name }} {{ $var->users->lastname }}
             </a>
+            took this chance.
+            </p>
         </div>
         @endforeach
     </div>

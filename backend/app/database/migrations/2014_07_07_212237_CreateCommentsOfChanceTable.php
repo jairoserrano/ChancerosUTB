@@ -12,7 +12,7 @@ class CreateCommentsOfChanceTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('commentofchance', function(Blueprint $table)
+		Schema::create('comments', function(Blueprint $table)
 		{
 			$table->increments('id');
                         $table->integer('chances_id')->unsigned();
@@ -31,7 +31,7 @@ class CreateCommentsOfChanceTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('commentofchance');
+		Schema::drop('comments');
 	}
 
 }
