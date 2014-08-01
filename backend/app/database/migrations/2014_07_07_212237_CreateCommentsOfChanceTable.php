@@ -31,7 +31,7 @@ class CreateCommentsOfChanceTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('commentofchance');
+		Schema::drop('comment');
 	}
 
 }
