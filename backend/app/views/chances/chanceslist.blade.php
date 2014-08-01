@@ -40,7 +40,9 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-xs-12 col-md-12 glyphicon glyphicon-user">
+                <a href="/user/{{$chance->vehicles->users->id}}">
                 {{$chance->vehicles->users->name}} {{$chance->vehicles->users->lastname}}
+                </a>
             </div>
         </div>
 
@@ -59,7 +61,9 @@
     <div class="panel-footer">
         @foreach($chance->userofchances as $var)
         <div class="row">
-            {{ $var->users->name }} {{ $var->users->lastname }}
+            <a href="/user/{{$var->users->id}}">
+                {{ $var->users->name }} {{ $var->users->lastname }}
+            </a>
         </div>
         @endforeach
     </div>
