@@ -17,6 +17,7 @@ class UserController extends \BaseController {
      * @return Response
      */
     public function create() {
+        
     }
 
     /**
@@ -24,10 +25,9 @@ class UserController extends \BaseController {
      *
      * @return Response
      */
-    public function store() {        
+    public function store() {
         $post_data = Input::all();
-        Mail::send('emails.welcome',$data = array('post_data' => $post_data), function($message)
-        {
+        Mail::send('emails.welcome', $data = array('post_data' => $post_data), function($message) {
             $data = Input::all();
             $data['password'] = Hash::make($data['password']);
             $data['status'] = true;
@@ -44,7 +44,15 @@ class UserController extends \BaseController {
      * @return Response
      */
     public function show($id) {
-        //
+        $user = User::find($id);
+        if ($user == null) {
+            $message = 'El usuario no existe.';
+            return View::make('users.profile', compact('message'));
+        }else if($user->id== Auth::user()->id){
+            return View::make('users.profile');
+        }else{
+            return View::make('users.publicprofile', compact('user'));
+        }
     }
 
     /**
