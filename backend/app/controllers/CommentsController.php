@@ -35,7 +35,7 @@ class CommentsController extends \BaseController {
 		$data = Input::all();
                 $data['users_id'] = Auth::user()->id;
                 Comment::create($data);
-                return Redirect::back(compact('messagecomment'))->with('messagecomment', 'Comentario agregado');
+                return Redirect::back();
 	}
 
 	/**
