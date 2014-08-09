@@ -3,15 +3,14 @@
 @parent
 @stop
 @section('content')
-<br>
 <div class="row" id="container_first">
     <div class="col-md-6 hidden-xs">
 
     </div>
     <div class="col-md-6 col-sm-12">
-        @if(isset($message))
+        @if($errors->first() != null)
         <h5>Alert:</h5>
-        <p>{{$message}}</p>
+        <p>{{ $errors->first() }}</p>
         @endif
         <h3>Add Vehicle</h3>
         {{Form::open(array('route' => 'vehicle.store','role'=>'form', 'class'=>'form-inline')) }}

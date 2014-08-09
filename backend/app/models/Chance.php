@@ -16,4 +16,8 @@ class Chance extends Eloquent {
     public function comment(){
         return $this->hasMany('Comment', 'chances_id', 'id');
     }
+    
+    public function rateds(){
+        return $this->hasMany('Rated', 'chances_id', 'id');
+    }
 }

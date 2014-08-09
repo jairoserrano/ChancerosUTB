@@ -43,17 +43,19 @@
                 </a>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-xs-6 col-md-6">
-                {{ Form::open(array('url' => 'usersofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
-                {{ Form::button('Take!', array('type' => 'submit', 'class' => 'glyphicon glyphicon-ok-sign btn btn-success', 'id' => 'forms-buttons')) }}
-                <input type="hidden" name="chances_id" value="{{$chance->id}}" id="chances_id"/>
-                {{ Form::close() }}
-            </div>
-            <div class="col-xs-6 col-md-6">
-                {{ HTML::link('/chance/'.$chance->id, 'Details', array('class' => 'glyphicon glyphicon-info-sign btn btn-info', 'id' => 'forms-buttons'), false)}}
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5 col-md-6">
+            {{ Form::open(array('url' => 'usersofchance','method'=>'POST','role'=>'form', 'class'=>'form-inline')) }}
+            {{ Form::button('Take!', array('type' => 'submit', 'class' => 'glyphicon glyphicon-plus-sign  btn btn-success', 'id' => 'forms-buttons')) }}
+            <input type="hidden" name="chances_id" value="{{$chance->id}}" id="chances_id"/>
+            {{ Form::close() }}
+        </div>
+        <div class="col-xs-5 col-md-6">
+            {{ Form::open(array('url' => 'rated/create','method'=>'GET','role'=>'form', 'class'=>'form-inline')) }}
+            {{ Form::button('Rate', array('type' => 'submit', 'class' => 'btn btn-primary glyphicon glyphicon-plus-sign', 'id' => 'forms-buttons')) }}
+            <input type="hidden" name="chances_id" value="{{$chance->id}}" id="chances_id"/>
+            {{ Form::close() }}
         </div>
     </div>
     <div class="panel-footer">
@@ -87,12 +89,11 @@
                 {{Form::hidden('chances_id', $chance->id, array('value' => $chance->id))}}
             </div>
 
-            <div class="col-md-12">
-                {{ Form::button('Add', array('type' => 'submit', 'class' => 'btn btn-success col-md-offset-10 col-md-2')) }}
+            <div class="col-xs-12 col-md-12">
+                {{ Form::button('Add', array('type' => 'submit', 'class' => 'btn btn-success col-xs-offset-6 col-xs-6 col-sm-offset-8 col-sm-4 col-md-offset-10 col-md-2')) }}
                 {{Form::close()}}
             </div>
         </div>
-
         <div class="row">
             @foreach($chance->comment as $comment)
             <p>

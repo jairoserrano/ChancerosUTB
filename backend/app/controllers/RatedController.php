@@ -1,56 +1,61 @@
-<?php use Carbon\Carbon;
+<?php
 
-class ChanceController extends \BaseController {
+class RatedController extends \BaseController {
 
     /**
      * Display a listing of the resource.
+     * GET /rated
      *
      * @return Response
      */
     public function index() {
-        $chances = Chance::where('date', '>=', new DateTime('today'))->get();
-        return View::make('chances.chanceslist', compact('chances') );
+        //
     }
 
     /**
      * Show the form for creating a new resource.
+     * GET /rated/create
      *
      * @return Response
      */
     public function create() {
-        $vehicles = Vehicle::where('users_id', '=', Auth::user()->id)->get();
-        if ($vehicles->count() > 0) {
-            return View::make('chances.create', compact('vehicles'));
-        } else {
-            return View::make('vehicles.create')->withErrors('You must add a vehicle to create a Chance');
+        $array = Input::all();
+        $chance = Chance::find($array['chances_id']);
+//        dd($chance->userofchances[0]->users);
+        if ($chance->vehicles->users->id == Auth::user()->id) {
+            return View::make('rate.ratechance', compact('chance'));
         }
     }
 
     /**
      * Store a newly created resource in storage.
+     * POST /rated
      *
      * @return Response
      */
     public function store() {
-        $chance = Input::all();
-        $chance['users_id'] = Auth::user()->id;
-        Chance::create($chance);
-        return Redirect::intended('/chanceslist');
+        $rate = Input::all();
+        $array = Array('users_id' => Auth::user()->id);
+        $rater = Rater::create($array);
+        $rate['raters_id'] = $rater->id;
+        Rated::create($rate);
+        return Redirect::back();
     }
 
     /**
      * Display the specified resource.
+     * GET /rated/{id}
      *
      * @param  int  $id
      * @return Response
      */
     public function show($id) {
-        $chance = Chance::find($id);
-        return View::make('chances.showchance', compact('chance'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
+     * GET /rated/{id}/edit
      *
      * @param  int  $id
      * @return Response
@@ -61,6 +66,7 @@ class ChanceController extends \BaseController {
 
     /**
      * Update the specified resource in storage.
+     * PUT /rated/{id}
      *
      * @param  int  $id
      * @return Response
@@ -71,6 +77,7 @@ class ChanceController extends \BaseController {
 
     /**
      * Remove the specified resource from storage.
+     * DELETE /rated/{id}
      *
      * @param  int  $id
      * @return Response

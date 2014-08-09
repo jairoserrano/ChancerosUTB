@@ -37,3 +37,4 @@ Route::resource('chance', 'ChanceController');
 Route::resource('usersofchance', 'UsersofChanceController');
 
 Route::resource('comments', 'CommentsController');
+Route::resource('rated', 'RatedController');
