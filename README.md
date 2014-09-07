@@ -13,6 +13,20 @@ Para ejecutar el servidor:
 
 Ingesar a http://localhost:8000
 
+Agregar al composer.json:
+
+    "require-dev": {
+    	"way/generators": "~3.0"
+    }
+
+Y luego ejecutar:
+
+    composer update --dev
+
+Y agregar en app/config/app.php en el provider array lo siguiente:
+
+    'Way\Generators\GeneratorsServiceProvider'
+
 Recuerden leer la documentación de:
 
 * http://getbootstrap.com/getting-started/
