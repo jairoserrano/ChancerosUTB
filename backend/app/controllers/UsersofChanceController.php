@@ -35,18 +35,16 @@ class UsersofChanceController extends \BaseController {
         $data['users_id'] = $iduser;
         $chance = Chance::find($idchance);
 
-        $userofchances = UserofChance::where('chances_id', '=', $idchance)
+        $userofchances = DB::table('usersofchance')
+                ->where('chances_id', '=', $idchance)
                 ->where('users_id', '=', $iduser)
                 ->get();
         if ($userofchances != null) {
-            $message = json_encode(array('message', 'You have already taken this chance'));
-            return $message;
-//            return Redirect::intended('/chanceslist')->with('message', 'You have already taken this chance');
+            return Redirect::intended('/chanceslist')->with('message', 'You have already taken this chance');
         }
         $vehicle = Vehicle::find($chance->vehicles_id);
         if ($vehicle->users_id == $iduser) {
-            $message = json_encode(array('message', 'You created this chance'));
-//            return Redirect::intended('/chanceslist')->with('message', 'You created this chance');
+            return Redirect::intended('/chanceslist')->with('message', 'You created this chance');
         } else {
             UserofChance::create($data);
             $chance->capacity = $chance->capacity - 1;

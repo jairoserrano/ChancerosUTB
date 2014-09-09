@@ -10,10 +10,8 @@ class VehicleController extends \BaseController {
     public function index() {
         //$vehicles = Vehicle::all()->toJson();
         //return $vehicles;
-        $vehicle = Vehicle::where('users_id', '=', Auth::user()->id)->get()->toJson();
-        return $vehicle;
-//        dd($vehicle);
-//        return View::make('vehicles.vehiclelist')->with('vehicle', $vehicle);
+        $vehicle = DB::table('vehicles')->where('users_id', '=', Auth::user()->id)->get();
+        return View::make('vehicles.vehiclelist')->with('vehicle', $vehicle);
     }
 
     /**
@@ -36,9 +34,7 @@ class VehicleController extends \BaseController {
         $vehicle['users_id'] = Auth::user()->id;
         $vehicle['status'] = true;
         Vehicle::create($vehicle);
-        return json_encode($vehicle);
-//        return $vehicle->toJson();
-//        return Redirect::intended('/vehiclelist');
+        return Redirect::intended('/vehiclelist');
     }
 
     /**
@@ -48,7 +44,7 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function show($id) {
-        $vehicle = Vehicle::find($id)->toJson();
+        $vehicle = Vehicle::find($id);
         return $vehicle;
     }
 
@@ -59,9 +55,8 @@ class VehicleController extends \BaseController {
      * @return Response
      */
     public function edit($id) {
-        $vehicle = Vehicle::find($id)->toJson();
-        return $vehicle;
-//        return View::make('vehicles.edit')->with('vehicle', $vehicle);
+        $vehicle = Vehicle::find($id);
+        return View::make('vehicles.edit')->with('vehicle', $vehicle);
     }
 
     /**
@@ -80,8 +75,7 @@ class VehicleController extends \BaseController {
         $vehicle2->capacity = $vehicle['capacity'];
         $vehicle2->type = $vehicle['type'];
         $vehicle2->save();
-        return json_encode($vehicle);
-//        return Redirect::intended('/vehiclelist');
+        return Redirect::intended('/vehiclelist');
     }
 
     /**
