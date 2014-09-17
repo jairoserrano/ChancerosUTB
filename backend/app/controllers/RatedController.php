@@ -24,6 +24,8 @@ class RatedController extends \BaseController {
 //        dd($chance->userofchances[0]->users);
         if ($chance->vehicles->users->id == Auth::user()->id) {
             return View::make('rate.ratechance', compact('chance'));
+        } else {
+            return View::make('rate.ratepassengerchance', compact('chance'));
         }
     }
 

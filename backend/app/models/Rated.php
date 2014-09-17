@@ -1,7 +1,7 @@
 <?php
 
 class Rated extends \Eloquent {
-	protected $fillable = array('comments', 'rate', 'users_id', 'raters_id', 'chances_id');
+	protected $fillable = array('comments', 'rate', 'users_id', 'raters_id', 'chances_id', 'rated_rol');
         
         public function users(){
             return $this->belongsTo('User');

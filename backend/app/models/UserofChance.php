@@ -6,7 +6,7 @@ class UserofChance extends Eloquent {
     protected $fillable = array('chances_id','users_id');
     
     public function chances(){
-        return $this->belongsTo('UserofChance');
+        return $this->belongsTo('Chance');
     }
     
     public function users(){

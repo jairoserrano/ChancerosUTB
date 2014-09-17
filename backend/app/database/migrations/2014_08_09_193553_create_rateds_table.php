@@ -20,7 +20,8 @@ class CreateRatedsTable extends Migration {
             $table->integer('chances_id')->unsigned();
             $table->foreign('chances_id')->references('id')->on('chances')->onDelete('cascade');
             $table->integer('raters_id')->unsigned();
-            $table->foreign('raters_id')->references('id')->on('raters');
+            $table->foreign('raters_id')->references('id')->on('raters')->onDelete('cascade');
+            $table->integer('rated_rol')->unsigned(); // 0. Passenger 1. Driver 
             $table->timestamps();
         });
     }

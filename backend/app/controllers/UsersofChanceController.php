@@ -35,11 +35,8 @@ class UsersofChanceController extends \BaseController {
         $data['users_id'] = $iduser;
         $chance = Chance::find($idchance);
 
-        $userofchances = DB::table('usersofchance')
-                ->where('chances_id', '=', $idchance)
-                ->where('users_id', '=', $iduser)
-                ->get();
-        if ($userofchances != null) {
+        $userofchances =  $userofchances = UserofChance::where('chances_id', '=', $idchance)->where('users_id', '=', $iduser)->get();
+        if (empty($userofchances)) {
             return Redirect::intended('/chanceslist')->with('message', 'You have already taken this chance');
         }
         $vehicle = Vehicle::find($chance->vehicles_id);

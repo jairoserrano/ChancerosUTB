@@ -7,11 +7,11 @@
 @if(isset($chance))
 <div class="row" id="container_first">
     <div class="col-md-6 col-md-offset-3 col-sm-12">
-        <h3>Rate Passengers</h3>
+        <h3>Rate Driver</h3>
         @foreach($chance->userofchances as $userofchance)
         <div class='row'>
             <div class="col-md-6 col-xs-12">
-                <h4>{{ $userofchance->users->name }} {{ $userofchance->users->lastname }}</h4>
+                <h4>{{ $userofchance->chances->vehicles->users->name }} {{ $userofchance->chances->vehicles->users->lastname }}</h4>
             </div>
         </div>
         <div class="row">
@@ -28,8 +28,8 @@
                 </label>
                 <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control"/>
                 <input type="hidden" name="chances_id" value="{{$chance->id}}" id="chances_id"/>
-                <input type="hidden" name="users_id" value="{{$userofchance->users->id}}" id="users_id"/>
-                <input type="hidden" name="rated_rol" value="0" id="rated_rol"/>
+                <input type="hidden" name="users_id" value="{{$userofchance->chances->vehicles->users->id}}" id="users_id"/>
+                <input type="hidden" name="rated_rol" value="1" id="rated_rol"/>
                 {{ Form::button('Rate', array('type' => 'submit', 'class' => 'btn btn-success')) }}
                 {{Form::close()}}
             </div>
